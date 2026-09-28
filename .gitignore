@@ -1,0 +1,25 @@
+# Template local (não vai para o Git)
+.ag-template/
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Dependências
+node_modules/
+
+# Builds
+.next/
+dist/
+build/
+out/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema
+.DS_Store
+.vscode/
+.idea/
