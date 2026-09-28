@@ -1,17 +1,15 @@
-# Índice do template de orquestração
+# Índice da base
 
-Esta pasta é a origem versionada. No projeto novo, copie para `.ag-template/`, preserve os 12 nomes de diretivas e instale `agent/GLOBAL-RULES.md` e `agent/GLOBAL-WORKFLOW.md` nas customizações do Antigravity. O arquivo `documentation/directives/0.ideia-inicial.md` deve conter a ideia real antes da chamada única de `comando-de-inicio.md` (na raiz do modelo).
+O repositório modelo guarda `ag-template/`; cada projeto novo usa `.ag-template/`. O ponto de entrada executável pelo agente é a skill de workspace `.agents/skills/project-orchestrator/SKILL.md` na raiz do projeto, instalada conforme `activation/README.md`. A ideia inicial fica em `.ag-template/documentation/directives/0.ideia-inicial.md`. Instale as regras globais do diretório `agent/` nas customizações do Antigravity; a cópia local só versiona a origem.
 
-## Ordem de leitura
+## Mapa
 
-1. `lifecycle-orchestration.md`: contrato de fases e precedência.
-2. `project-profiles.md`, `applicability-matrix.md`, `minimal-documentation.md`: classificar e evitar artefatos desnecessários.
-3. `documentation/directives/`: entrada e especificações canônicas; `project/5.projeto.md` e `design/5.design.md` são aprovados antes da implementação.
-4. `security/`: modelo de ameaças e desenvolvimento seguro. `risk-catalogue.md` registra riscos por projeto.
-5. `phases-gates-reports.md`, `project-health-checklist.md`, `sop-templates/`: evidências, execução, liberação e operação.
-6. `integration-contracts.md`, `guides/`, `ui-patterns/`: referências opcionais, não instruções superiores nem código pronto para produção.
-7. `ci/`: exemplos inertes até serem adaptados e instalados no caminho de workflows do projeto.
+- `lifecycle-orchestration.md` e `phases-gates-reports.md`: fases e critérios de gate.
+- `documentation/directives/`: os 12 nomes canônicos, entrada, projeto e design.
+- `security/` e `risk-catalogue.md`: ameaças, controles, verificações e riscos.
+- `sop-templates/`: setup, implementação, integração, validação, segurança, deploy, troubleshooting e operação.
+- `ci/`: orientação e exemplo não executado; CI real depende da stack e vai ao caminho de workflows do projeto.
+- `guides/`, `ui-patterns/`: material opcional a revisar conforme perfil; não instalar como regra global nem copiar snippets automaticamente.
+- `project-profiles.md`, `applicability-matrix.md`, `minimal-documentation.md`, `folder-structure.md`: classificação, decisões e estrutura.
 
-## Regras de migração
-
-`agent/rules.md` e `agent/workflows.md` são avisos legados e não devem ser instalados no IDE. Caminhos `documentation/project/` encontrados em exemplos antigos são documentos derivados, não as diretivas em `.ag-template/documentation/directives/project/`. Nenhuma variável em `.env-example` prova que serviço foi configurado. Reportar conflitos não resolvidos antes de agir.
+Os arquivos de diretivas vazios são placeholders; não equivalem a especificações aprovadas. `documentation/` na raiz do projeto pode receber documentação derivada, mas não substitui `.ag-template/documentation/directives/`. Na falta de evidência, declarar `not-verified`.
