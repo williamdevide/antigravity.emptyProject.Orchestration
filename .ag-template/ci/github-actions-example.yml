@@ -1,5 +1,5 @@
 # Exemplo: copiar para .github/workflows/quality.yml no projeto gerado e adaptar à stack.
-# Este arquivo em ag-template/ci NÃO é executado pelo GitHub Actions.
+# Este arquivo em .ag-template/ci NÃO é executado pelo GitHub Actions.
 name: quality-example
 on:
   pull_request:

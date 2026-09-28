@@ -2,7 +2,7 @@
 
 No projeto novo, usar `.ag-template/` para os contratos e `.agents/skills/project-orchestrator/SKILL.md` na raiz do workspace para descoberta da skill. O `SKILL.md` versionado no repositório modelo está em `.agents/skills/project-orchestrator/`; copiar junto ao preparar o projeto. A skill não é automaticamente descoberta se estiver apenas dentro de `.ag-template/`.
 
-1. Copiar `ag-template/` do modelo para `.ag-template/` do novo projeto e versionar a pasta sem segredos.
+1. Copiar `.ag-template/` do modelo para `.ag-template/` do novo projeto e versionar a pasta sem segredos.
 2. Copiar `.agents/skills/project-orchestrator/SKILL.md` do modelo para o mesmo caminho na raiz do novo projeto.
 3. Instalar o conteúdo de `agent/GLOBAL-RULES.md` e `agent/GLOBAL-WORKFLOW.md` nas customizações do Antigravity, sem instalar os antigos `rules.md` e `workflows.md`.
 4. Preencher `.ag-template/documentation/directives/0.ideia-inicial.md` com a ideia real.

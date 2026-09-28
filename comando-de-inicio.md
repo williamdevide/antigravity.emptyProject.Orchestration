@@ -1,6 +1,6 @@
 # Comando de início pela skill
 
-No repositório modelo, a base está em `ag-template/`. No projeto novo, copie para `.ag-template/` e mantenha a skill em `.agents/skills/project-orchestrator/SKILL.md` na raiz do workspace; siga `ag-template/activation/README.md` antes da primeira execução.
+No repositório modelo, a base está em `.ag-template/`. No projeto novo, copie para `.ag-template/` e mantenha a skill em `.agents/skills/project-orchestrator/SKILL.md` na raiz do workspace; siga `.ag-template/activation/README.md` antes da primeira execução.
 
 Com `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` instalados nas customizações do Antigravity e `.ag-template/documentation/directives/0.ideia-inicial.md` preenchido, envie:
 

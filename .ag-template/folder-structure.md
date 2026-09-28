@@ -2,7 +2,7 @@
 
 ## Template e projeto
 
-No repositório base, a origem versionada é `ag-template/`. No novo projeto, copie-a para `.ag-template/`; mantenha as diretivas em `.ag-template/documentation/directives/`, sem renomear os 12 arquivos canônicos. `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` são copiados manualmente para as customizações do Antigravity; sua cópia em `.ag-template/agent/` é apenas referência versionada.
+No repositório base, a origem versionada é `.ag-template/`. No novo projeto, copie-a para `.ag-template/`; mantenha as diretivas em `.ag-template/documentation/directives/`, sem renomear os 12 arquivos canônicos. `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` são copiados manualmente para as customizações do Antigravity; sua cópia em `.ag-template/agent/` é apenas referência versionada.
 
 ```text
 projeto/

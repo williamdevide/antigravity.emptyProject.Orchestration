@@ -1,6 +1,6 @@
 # Índice da base
 
-O repositório modelo guarda `ag-template/`; cada projeto novo usa `.ag-template/`. O ponto de entrada executável pelo agente é a skill de workspace `.agents/skills/project-orchestrator/SKILL.md` na raiz do projeto, instalada conforme `activation/README.md`. A ideia inicial fica em `.ag-template/documentation/directives/0.ideia-inicial.md`. Instale as regras globais do diretório `agent/` nas customizações do Antigravity; a cópia local só versiona a origem.
+O repositório modelo guarda `.ag-template/`; cada projeto novo usa `.ag-template/`. O ponto de entrada executável pelo agente é a skill de workspace `.agents/skills/project-orchestrator/SKILL.md` na raiz do projeto, instalada conforme `activation/README.md`. A ideia inicial fica em `.ag-template/documentation/directives/0.ideia-inicial.md`. Instale as regras globais do diretório `agent/` nas customizações do Antigravity; a cópia local só versiona a origem.
 
 ## Mapa
 
