@@ -24,10 +24,10 @@ def main():
     args = parser.parse_args()
     if not OLD.is_dir() or NEW.exists():
         raise SystemExit('Esperado: ag-template/ existente e .ag-template/ ausente.')
-    if git('rev-parse', '--show-toplevel') != str(ROOT):
-        raise SystemExit('Execute na raiz do clone Git.')
+    if git('rev-parse', '--is-inside-work-tree') != 'true':
+        raise SystemExit('A pasta do script não está dentro de um clone Git.')
     if git('status', '--porcelain'):
-        raise SystemExit('Working tree não está limpa.')
+        raise SystemExit('Working tree não está limpa: faça commit ou guarde as alterações antes de migrar.')
     edits = []
     for p in ROOT.rglob('*'):
         if not p.is_file() or '.git' in p.parts or p == Path(__file__).resolve():
