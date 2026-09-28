@@ -1,15 +1,15 @@
 # Índice da base
 
-O repositório modelo guarda `.ag-template/`; cada projeto novo usa `.ag-template/`. O ponto de entrada executável pelo agente é a skill de workspace `.agents/skills/project-orchestrator/SKILL.md` na raiz do projeto, instalada conforme `activation/README.md`. A ideia inicial fica em `.ag-template/documentation/directives/0.ideia-inicial.md`. Instale as regras globais do diretório `agent/` nas customizações do Antigravity; a cópia local só versiona a origem.
+A pasta `.ag-template/` é canônica no repositório-modelo e nos novos projetos. O ponto de entrada é `.agents/skills/project-orchestrator/SKILL.md` na raiz do workspace. A ideia inicial fica em `.ag-template/documentation/directives/0.ideia-inicial.md`; as regras globais do diretório `agent/` são configuradas separadamente no IDE.
 
 ## Mapa
 
-- `lifecycle-orchestration.md` e `phases-gates-reports.md`: fases e critérios de gate.
-- `documentation/directives/`: os 12 nomes canônicos, entrada, projeto e design.
-- `security/` e `risk-catalogue.md`: ameaças, controles, verificações e riscos.
-- `sop-templates/`: setup, implementação, integração, validação, segurança, deploy, troubleshooting e operação.
-- `ci/`: orientação e exemplo não executado; CI real depende da stack e vai ao caminho de workflows do projeto.
-- `guides/`, `ui-patterns/`: material opcional a revisar conforme perfil; não instalar como regra global nem copiar snippets automaticamente.
-- `project-profiles.md`, `applicability-matrix.md`, `minimal-documentation.md`, `folder-structure.md`: classificação, decisões e estrutura.
+- `lifecycle-orchestration.md` e `phases-gates-reports.md`: fases e gates.
+- `documentation/directives/`: 12 diretivas canônicas; não renomear.
+- `security/`, `risk-catalogue.md` e `sop-templates/`: ameaças, segurança, execução e operação.
+- `project-customization/`: modelos de regras e workflow específicos após G1.
+- `ci/`: política por projeto e exemplo inerte; CI de aplicação depende da stack real.
+- `release/`: registro de promoção e evidências, não prova de deploy.
+- `guides/` e `ui-patterns/`: referências condicionais, nunca código de produção sem revisão.
 
-Os arquivos de diretivas vazios são placeholders; não equivalem a especificações aprovadas. `documentation/` na raiz do projeto pode receber documentação derivada, mas não substitui `.ag-template/documentation/directives/`. Na falta de evidência, declarar `not-verified`.
+O workflow `.github/workflows/template-validation.yml` na raiz do repositório-modelo executa `scripts/validate_template.py` e valida apenas estrutura e nomes, não testes de software, scanners ou descoberta da skill no Antigravity. Diretivas placeholder não equivalem a aprovação de G1. Sem evidência de execução, classificar `not-verified`.
