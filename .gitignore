@@ -1,25 +1,23 @@
-# Template local (não vai para o Git)
-.ag-template/
-
-# Ambiente
+# Segredos e ambiente local
 .env
 .env.local
 .env.*.local
+*.pem
+*.key
 
-# Dependências
+# Dependências e saídas
 node_modules/
-
-# Builds
 .next/
 dist/
 build/
 out/
-
-# Logs
+coverage/
 *.log
-npm-debug.log*
 
-# Sistema
+# IDE e sistema
 .DS_Store
 .vscode/
 .idea/
+
+# .ag-template/ contém regras e diretivas do projeto gerado e deve ser versionada.
+# Nunca colocar credenciais ou dados pessoais nela.
