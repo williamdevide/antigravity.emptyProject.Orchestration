@@ -1,12 +1,12 @@
 # Base de orquestração para novos projetos
 
-O repositório modelo guarda `.ag-template/`. No projeto gerado, a pasta final chama-se `.ag-template/`, e a skill fica na raiz em `.agents/skills/project-orchestrator/SKILL.md`. Consulte `.ag-template/activation/README.md` para instalar e testar a descoberta no Antigravity.
+A estrutura canônica usa `.ag-template/` neste modelo e nos projetos derivados; a entrada de produto fica em `0.ideia-inicial.md` na raiz. A skill está em `.agents/skills/project-orchestrator/SKILL.md`. Instale `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` nas customizações do Antigravity.
 
 ## Início
 
-1. Copie `.ag-template/` para `.ag-template/` e copie a skill `.agents/skills/project-orchestrator/` para a raiz do novo workspace.
-2. Instale `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` nas customizações do Antigravity.
-3. Preencha `.ag-template/documentation/directives/0.ideia-inicial.md` com a ideia real.
-4. No chat, envie: `Use a skill project-orchestrator para iniciar este projeto pela ideia inicial e parar no gate de aprovação da especificação.`
+1. Preencha `0.ideia-inicial.md` na raiz com ideia substantiva.
+2. Envie: `Use a skill project-orchestrator para iniciar este projeto pela ideia inicial e parar no gate de aprovação da especificação.`
+3. O agente confirma os insumos, conduz `/grill-me` antes de escrever e utiliza `/goal` para as especificações finais; se não puder invocar esses comandos no chat, deve pedir sua execução, sem simular que os usou.
+4. Revise as parciais e `.ag-template/documentation/directives/project/5.projeto.md` e `design/5.design.md` quando aplicável. Antes de pedir aprovação de G1, o agente verifica apenas presença de configuração necessária no `.env` sem exibir segredos; configuração não prova integração ativa.
 
-A skill é um ponto de entrada, não uma autorização irrestrita: a especificação, mudanças externas e produção exigem aprovações próprias. Ela exige requisitos de segurança, ameaças, revisão, testes, CI por stack, promoção controlada e operação com evidências. Exemplos na pasta `ci/` não executam até serem adaptados e instalados; o template não contém CD automático. Consulte `.ag-template/lifecycle-orchestration.md` para os gates e `.ag-template/README.md` para o mapa de arquivos.
+Aprovação de G1 não autoriza escrita no Stitch, deploy ou ações externas. Consulte `.ag-template/activation/README.md` e `.ag-template/lifecycle-orchestration.md` para instalação, gates e critérios. O CI do modelo verifica estrutura, não a segurança de aplicações derivadas.
