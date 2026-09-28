@@ -1,0 +1,22 @@
+# Exemplo: copiar para .github/workflows/quality.yml no projeto gerado e adaptar à stack.
+# Este arquivo em ag-template/ci NÃO é executado pelo GitHub Actions.
+name: quality-example
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirmar entrada
+        shell: bash
+        run: |
+          test -s .ag-template/documentation/directives/0.ideia-inicial.md
+          ! grep -Fq '[Digite o nome do projeto]' .ag-template/documentation/directives/0.ideia-inicial.md
+  # Incluir jobs de build, testes, secret scan, SAST e SCA usando ferramentas
+  # aprovadas, versões imutáveis e limiares de falha do projeto. Não marcar
+  # controles não configurados como executados ou aprovados.
