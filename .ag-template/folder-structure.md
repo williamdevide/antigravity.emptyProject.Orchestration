@@ -1,28 +1,23 @@
-# Estrutura canônica de projeto
-
-## Template e projeto
-
-No repositório base, a origem versionada é `.ag-template/`. No novo projeto, copie-a para `.ag-template/`; mantenha as diretivas em `.ag-template/documentation/directives/`, sem renomear os 12 arquivos canônicos. `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` são copiados manualmente para as customizações do Antigravity; sua cópia em `.ag-template/agent/` é apenas referência versionada.
+# Estrutura canônica
 
 ```text
 projeto/
+├── 0.ideia-inicial.md        # única entrada de produto; conteúdo real antes de iniciar
 ├── .ag-template/
-│   ├── agent/
+│   ├── agent/                # regras globais para customização do IDE
 │   ├── documentation/directives/
-│   │   ├── 0.ideia-inicial.md
 │   │   ├── 0.prompt-iaexterna-inicial.md
-│   │   ├── project/1.ideia-projeto.md ... 5.projeto.md
-│   │   └── design/1.ideia-design.md ... 5.design.md
+│   │   ├── project/          # 1 a 5; fonte final 5.projeto.md
+│   │   └── design/           # 1 a 5; fonte final 5.design.md se houver UI
 │   ├── security/
+│   ├── project-customization/
 │   ├── ci/
-│   ├── guides/
-│   ├── ui-patterns/
+│   ├── release/
 │   └── sop-templates/
-├── documentation/  # relatórios, decisões e documentação derivada, quando aplicável
-├── src/            # somente quando a stack adotada usar esse caminho
-├── tests/          # conforme a stack
-├── .gitignore
-└── README.md
+├── .agents/skills/project-orchestrator/SKILL.md
+├── documentation/           # documentação derivada e reports, quando aplicáveis
+├── .env                    # local, nunca versionar
+└── .env-example            # nomes, sem segredos
 ```
 
-Não criar diretórios vazios nem estruturas de Next.js, funções serverless, scrapers, banco, 3D ou UI sem necessidade validada. `documentation/project/` em guias antigos é um exemplo de documentação derivada, não a entrada canônica nem substituto de `documentation/directives/project/`. Gerar CI específico em `.github/workflows/` somente após seleção da stack e definição dos controles; `ci/github-actions-example.yml` é não executável no local atual. Não mover arquivos sem atualizar referências e verificar consumidores.
+Não duplicar `0.ideia-inicial.md` sob `.ag-template/`. As parciais e finais ficam sob `.ag-template/documentation/directives/`, enquanto `documentation/` na raiz pode receber material derivado, como `applicability.md`. Estrutura de código, banco, UI e CI de aplicação depende do perfil e stack aprovados. Não gerar diretórios irrelevantes.
