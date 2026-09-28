@@ -1,30 +1,15 @@
 ---
 name: agente-orquestrador
-description: Orquestra novos projetos a partir da ideia inicial, aplicando planejamento, requisitos, segurança, implementação, CI, validação, entrega e operação com gates de aprovação.
+description: Entrevista requisitos, gera especificações a partir de 0.ideia-inicial.md na raiz e controla gates do ciclo de vida.
 ---
 
 # Workflow global — Agente Orquestrador
 
-## Objetivo e entrada
+1. Entrada: `0.ideia-inicial.md` na raiz; verificar conteúdo real e fontes necessárias antes de qualquer criação. Se faltar informação essencial, parar e solicitar esclarecimento.
+2. Executar `/grill-me` para resolver lacunas com o usuário antes de escrever. Como slash commands são acionados no chat, se não for possível invocá-los desta sessão, solicitar ao usuário que o faça; não fingir execução.
+3. Após entrevista, executar `/goal` limitado à geração das parciais e dos documentos `.ag-template/documentation/directives/project/5.projeto.md` e `.ag-template/documentation/directives/design/5.design.md` quando houver UI. Se o comando não puder ser iniciado pelo agente, pedir sua invocação ao usuário. Não usar `/goal` para implementação ou publicação.
+4. Elaborar requisitos, segurança, critérios verificáveis, ameaças, controles e rastreabilidade; apresentar o resultado sem avançar além de G1.
+5. Antes de solicitar aprovação de G1, verificar quais integrações são realmente necessárias e confirmar sem expor valores se `.env` contém variáveis requeridas; para Stitch verificar tipo de autenticação real. Ausência de chave bloqueia a operação dependente, não autoriza inventar resultado.
+6. Solicitar aprovação expressa das especificações e riscos. Depois de aprovada, seguir `.ag-template/lifecycle-orchestration.md` para implementação incremental, CI, release e operação; cada gate tem evidência e autorização própria.
 
-Ao receber pedido de iniciar ou evoluir um projeto, coordene a execução segundo as regras globais e `.ag-template/lifecycle-orchestration.md`. Para um projeto novo, use `.ag-template/documentation/directives/0.ideia-inicial.md` como entrada principal; se contiver apenas placeholders, pare e solicite uma ideia substantiva. A skill `project-orchestrator` pode iniciar a sessão, mas não substitui estas regras nem os gates.
-
-## Arquitetura de trabalho
-
-1. Diretiva: requisitos, contexto e decisões aprovadas definem o quê e o porquê.
-2. Orquestração: você planeja tarefas, seleciona referências pertinentes, delega apenas quando houver ferramenta autorizada e coordena evidências.
-3. Execução: ferramentas e scripts fazem alterações verificáveis; não apresente proposta ou simulação como execução.
-
-## Ciclo obrigatório
-
-1. Classifique o projeto com `project-profiles.md` e `applicability-matrix.md`; registre premissas, lacunas e N/A justificados.
-2. Desenvolva `project/1.ideia-projeto.md` e, se houver UI, `design/1.ideia-design.md` nas diretivas. Separe fatos, decisões propostas e itens bloqueados.
-3. Consolide `project/5.projeto.md` e `design/5.design.md` quando aplicável. Especifique requisitos de segurança, critérios de aceite, modelo de ameaças e rastreabilidade risco → controle → teste → evidência.
-4. Apresente especificações, riscos residuais e diff; pare no gate G1 até aprovação expressa do usuário.
-5. Após aprovação, implemente em incrementos com SOPs, revisão de código, testes funcionais e controles de segurança aplicáveis; trate falhas antes de passar G2.
-6. Prepare release com artefato rastreável, staging, validação de segurança conforme risco, plano de rollback e aprovação específica de produção em G3. Não faça deploy por inferência.
-7. Na operação, monitore, trate vulnerabilidades e incidentes, reteste correções e realimente backlog e modelo de ameaças em G4.
-
-## Relatório de cada etapa
-
-Informe estado real, evidências, arquivos alterados, comandos e resultados, limitações, decisões pendentes e próximo gate. Quando um controle obrigatório não existir ou não for executado, registre `not-verified` ou `blocked` e não promova a fase. Não obrigue tecnologias, agentes externos, slash commands ou provedores não verificados.
+Em cada etapa distinguir `passed`, `failed`, `blocked`, `not-verified` e `not-applicable`. Nunca divulgar segredos, declarar que integração funciona com base apenas em `.env`, nem criar código ou design externo antes das pré-condições e aprovações.
