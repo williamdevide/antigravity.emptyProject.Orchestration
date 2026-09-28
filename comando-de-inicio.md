@@ -1,7 +1,9 @@
-# Comando único de início
+# Comando de início pela skill
 
-Após copiar `ag-template/` para `.ag-template/` no novo projeto, preencher `.ag-template/documentation/directives/0.ideia-inicial.md` e instalar `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` nas customizações do Antigravity, envie no chat:
+No repositório modelo, a base está em `ag-template/`. No projeto novo, copie para `.ag-template/` e mantenha a skill em `.agents/skills/project-orchestrator/SKILL.md` na raiz do workspace; siga `ag-template/activation/README.md` antes da primeira execução.
 
-> Inicie a orquestração deste projeto conforme as regras globais e `.ag-template/lifecycle-orchestration.md`, usando `.ag-template/documentation/directives/0.ideia-inicial.md` como entrada. Trabalhe até o primeiro gate de aprovação, registre evidências e não faça deploy.
+Com `GLOBAL-RULES.md` e `GLOBAL-WORKFLOW.md` instalados nas customizações do Antigravity e `.ag-template/documentation/directives/0.ideia-inicial.md` preenchido, envie:
 
-O agente pode produzir documentos e análises, mas deve parar antes de implementar para obter aprovação explícita do projeto, do design se aplicável e dos riscos residuais. Essa chamada não substitui consentimento para ações externas, exclusões, deploy, produção ou aceitação de risco. Não presumir que `/goal`, `/grill-me` ou `ag-kit` existem; verificar primeiro.
+> Use a skill project-orchestrator para iniciar este projeto pela ideia inicial e parar no gate de aprovação da especificação.
+
+Se a skill não for descoberta, use como alternativa explícita: `Inicie pela .ag-template/lifecycle-orchestration.md e pela .ag-template/documentation/directives/0.ideia-inicial.md; pare em G1.` Registre que a descoberta da skill falhou; não declare o mecanismo ativado. A chamada não autoriza implementação anterior ao gate, escrita externa, exclusão nem deploy.
