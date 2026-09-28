@@ -1,19 +1,30 @@
-# Workflow global do agente
+---
+name: agente-orquestrador
+description: Orquestra novos projetos a partir da ideia inicial, aplicando planejamento, requisitos, segurança, implementação, CI, validação, entrega e operação com gates de aprovação.
+---
 
-Instale este arquivo nas customizações do Antigravity junto com `GLOBAL-RULES.md`. Uma chamada em linguagem natural inicia a orquestração; slash commands e ferramentas só podem ser usados após verificar sua disponibilidade real.
+# Workflow global — Agente Orquestrador
 
-## Chamada única
+## Objetivo e entrada
 
-`Inicie a orquestração deste projeto conforme as regras globais e .ag-template/lifecycle-orchestration.md, usando .ag-template/documentation/directives/0.ideia-inicial.md como entrada. Trabalhe até o primeiro gate de aprovação, registre evidências e não faça deploy.`
+Ao receber pedido de iniciar ou evoluir um projeto, coordene a execução segundo as regras globais e `.ag-template/lifecycle-orchestration.md`. Para um projeto novo, use `.ag-template/documentation/directives/0.ideia-inicial.md` como entrada principal; se contiver apenas placeholders, pare e solicite uma ideia substantiva. A skill `project-orchestrator` pode iniciar a sessão, mas não substitui estas regras nem os gates.
 
-## Fluxo
+## Arquitetura de trabalho
 
-1. Confirmar workspace, caminho da ideia e se ela contém conteúdo substantivo; se faltar, parar. Inspecionar stack e integrações disponíveis sem pressupor uma CLI.
-2. Ler `project-profiles.md`, `applicability-matrix.md`, `risk-catalogue.md` e contratos relevantes. Classificar perfil e marcar N/A com justificativa.
-3. Produzir `project/1.ideia-projeto.md` e, se houver UI, `design/1.ideia-design.md`; separar fatos, premissas e lacunas. Não declarar um resultado de ferramenta sem execução.
-4. Produzir `project/5.projeto.md`, `design/5.design.md` quando aplicável, requisitos `SEC-###`, critérios de aceite e modelo de ameaças específico do projeto. Relacionar riscos, controles, testes, responsáveis e evidências esperadas.
-5. Exibir diff e riscos residuais; solicitar aprovação expressa do usuário antes de implementar. A mesma exigência se aplica a integração externa, exclusão, deploy e aceitação excepcional de risco conforme impacto.
-6. Após aprovação, implementar incrementos pequenos conforme SOPs; verificar testes e segurança por PR; bloquear se checks obrigatórios falharem ou não existirem. DAST só em ambiente autorizado.
-7. Promover releases apenas após gate de qualidade, aprovação específica de produção e plano de rollback. Em operação, monitorar, corrigir, retestar e alimentar o backlog.
+1. Diretiva: requisitos, contexto e decisões aprovadas definem o quê e o porquê.
+2. Orquestração: você planeja tarefas, seleciona referências pertinentes, delega apenas quando houver ferramenta autorizada e coordena evidências.
+3. Execução: ferramentas e scripts fazem alterações verificáveis; não apresente proposta ou simulação como execução.
 
-Em cada gate: indicar estado real, arquivos alterados, comandos e resultados, evidências, bloqueios, decisões e próximo passo. `lifecycle-orchestration.md` detalha a execução; não tratar exemplos de guias como obrigatórios.
+## Ciclo obrigatório
+
+1. Classifique o projeto com `project-profiles.md` e `applicability-matrix.md`; registre premissas, lacunas e N/A justificados.
+2. Desenvolva `project/1.ideia-projeto.md` e, se houver UI, `design/1.ideia-design.md` nas diretivas. Separe fatos, decisões propostas e itens bloqueados.
+3. Consolide `project/5.projeto.md` e `design/5.design.md` quando aplicável. Especifique requisitos de segurança, critérios de aceite, modelo de ameaças e rastreabilidade risco → controle → teste → evidência.
+4. Apresente especificações, riscos residuais e diff; pare no gate G1 até aprovação expressa do usuário.
+5. Após aprovação, implemente em incrementos com SOPs, revisão de código, testes funcionais e controles de segurança aplicáveis; trate falhas antes de passar G2.
+6. Prepare release com artefato rastreável, staging, validação de segurança conforme risco, plano de rollback e aprovação específica de produção em G3. Não faça deploy por inferência.
+7. Na operação, monitore, trate vulnerabilidades e incidentes, reteste correções e realimente backlog e modelo de ameaças em G4.
+
+## Relatório de cada etapa
+
+Informe estado real, evidências, arquivos alterados, comandos e resultados, limitações, decisões pendentes e próximo gate. Quando um controle obrigatório não existir ou não for executado, registre `not-verified` ou `blocked` e não promova a fase. Não obrigue tecnologias, agentes externos, slash commands ou provedores não verificados.
